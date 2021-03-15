@@ -1,0 +1,51 @@
+
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+<div class="card">
+<div class="card-header" style="text-align: center;">
+<h3>Add Sub Item</h3>
+</div>
+
+
+<form (ngSubmit)="onSubmit()">
+  <div class="card-body">
+  <div class="form-group" style="text-align: center;">
+    <label for="name" style="display: inline-block;text-align: right; "><h5>Sub Item Name  </h5></label> &nbsp;
+    <input type="text"  id="subitemName" required [(ngModel)]="subitemObj.name" name="subitemName">
+    <input type="hidden"  id="subitemid" required [(ngModel)]="subitemObj.id" name="subitemid">
+
+  </div>
+
+</div>
+
+<div class="card-footer" style="text-align: center;">
+  <button type="submit" class="btn btn-success">Submit</button>
+  <!-- <button class="btn btn-primary" (click)="rerender()" style="margin-left: 10px;">refresh</button> -->
+</div>
+</form>
+</div>
+<br>
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+  <thead>
+    <tr>
+      <th>Sr No.</th>
+      <th> Name</th>
+      <th> Action</th>
+     
+    </tr>
+  </thead>
+  <tbody *ngIf="subitems?.length != 0">
+    <tr *ngFor="let subitem of subitems;index as i">
+      <td>{{i+1}}</td>
+      <td>{{ subitem.name }}</td>
+      
+       <td><i (click)="deleteItem(subitem.id )"  class="fa  fa-trash"></i>
+          <i  (click)="editItemDetail(subitem.id,subitem.name)" class="fa fa-edit" style="margin-left: 10px"></i>
+      </td>
+    </tr>
+  </tbody>
+  <tbody *ngIf="subitems?.length == 0">
+    <tr>
+      <td colspan="3" class="no-data-available text-center" >No data!</td>
+    </tr>
+  </tbody>
+</table>

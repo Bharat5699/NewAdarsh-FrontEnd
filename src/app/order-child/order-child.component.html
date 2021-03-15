@@ -1,0 +1,191 @@
+
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+
+    <div class="card">
+    <div class="card-header" style="text-align: center;">
+    <h3>Add Menu</h3>
+    </div>
+    
+    
+
+      <div class="card-body">
+       
+    
+    
+    
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+            <div class="col-md-4">
+              <label>Name:</label> 
+            </div>
+            <div class="col-md-8">
+        <label>{{orderObj.name}}</label>
+            </div>
+            </div>
+           
+          </div>
+          <div class="col-md-6" >
+            <div class="row">
+            <div class="col-md-4" >
+              <label>Mobile No:</label> 
+            </div>
+            <div class="col-md-8" >
+              <label>{{orderObj.mobile_no}}</label>
+    
+              </div>
+              
+              </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+            <div class="col-md-4">
+              <label>From Date:</label> 
+            </div>
+            <div class="col-md-8">
+    
+              
+              <label >{{fdate}} </label>
+    
+            </div>
+            </div>
+           
+          </div>
+          <div class="col-md-6" >
+            <div class="row">
+            <div class="col-md-4" >
+              <label>To Date:</label> 
+            </div>
+            <div class="col-md-8" >
+         
+              <label >{{tdate}} </label>
+              </div>
+              
+              </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+              <div class="row">
+              <div class="col-md-4">
+                <label>Address:</label> 
+              </div>
+              <div class="col-md-8">
+           
+      <label>{{orderObj.address}}</label>
+              </div>
+              </div>
+             
+            </div>
+           
+          </div>
+      </div>
+    </div>
+    <div class="card">
+  
+    
+          <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="row">
+              <div class="col-md-4">
+                <label> Date</label> 
+              </div>
+              <div class="col-md-8">
+      
+                
+                <input type="date" class="form-control" id="orderfdate" required [(ngModel)]="fdate" name="orderfdate">
+      
+              </div>
+              </div>
+             
+            </div>
+            <div class="col-md-4" >
+              <div class="row">
+              <div class="col-md-4" >
+                <label>Time</label> 
+              </div>
+              <div class="col-md-8" >
+                <input type="text"  class="form-control" id="ordertodate" required [(ngModel)]="tdate" name="ordertodate">
+      
+                </div>
+                
+                </div>
+            </div>
+            <div class="col-md-4" >
+                <div class="row">
+                <div class="col-md-4" >
+                  <label>Person</label> 
+                </div>
+                <div class="col-md-8" >
+                  <input type="text"  class="form-control" id="ordertodate" required [(ngModel)]="tdate" name="ordertodate">
+        
+                  </div>
+                  
+                  </div>
+              </div>
+          </div>
+      <br>
+        
+          <div class="row">
+            <div class="col-md-6">  
+                <div class="row">          
+              <div class="col-md-4" >
+                <label> Item:</label> 
+              </div>
+              <div class="col-md-8" >
+                <div class="filter-wrap">
+                  <input [(ngModel)]="searchText" class="form-control" placeholder="Filter SubItem" class="filter-input">
+                  <span class="filter-clear" *ngIf="searchText.length>0" (click)="clearFilter()">X</span>
+                </div>
+                <div class="clear-selection" title="Click to Clear Selections" (click)="clearSelection()" *ngIf="selected_count">Clear Selection</div>
+      
+      <!-- Game List -->
+      <div style="max-height: 400px; overflow: auto;    margin-top: 17px;border: 1px solid;">
+      <ul class="game-list">
+        <li *ngFor="let g of games | chkfilter : searchText" class="game-item"> 
+          <input (change)="getSelected()" type="checkbox"
+                   name="games"
+                   value="{{g.id}}"
+                   [(ngModel)]="g.selected"/> 
+          <span class="game-text">{{g.name}}</span>
+        </li>
+      </ul>
+    </div>
+                </div>
+</div>
+             
+            </div>
+            <div class="col-md-6" >
+              <div class="row">
+             <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                <div *ngIf="selected_games"  class="selected-games-wrap">
+                    <div class="selected-game" *ngFor="let s of selected_games" >
+                      <span class="selected-span">{{s.name}} <span class="delete-game" (click)="deleteGame(s.id)" title="Click to delete">X</span></span>
+                    </div>
+                </div>
+            </div>
+                
+                </div>
+            </div>
+          </div>
+     
+    
+    </div>
+    
+    <!-- <div class="card-footer" style="text-align: center;">
+      <button class="btn btn-primary" type="button"  (click)="clear()" style="margin-right: 10px;">CLEAR</button>
+      <button type="submit" class="btn btn-success">SAVE</button>
+      <button class="btn btn-info" type="button"  (click)="searchOrder()" style="margin-left: 10px;">SEARCH</button>
+     
+    </div> -->
+    
+    </div>
+    <br>   
+  
+    

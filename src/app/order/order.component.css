@@ -1,0 +1,17 @@
+table,thead,th,tbody,td{
+    border: 1px solid;
+    text-align: center;
+}
+table{
+    width: 100%;
+    /* position: relative; */
+}
+tbody{
+/* position: absolute; */
+    max-height: 400px;
+ 
+    overflow: auto;
+}
+input {
+    margin-bottom: 10px;
+}

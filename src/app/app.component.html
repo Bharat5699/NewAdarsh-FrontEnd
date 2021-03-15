@@ -1,0 +1,72 @@
+<div id="app">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">NEW ADARSH</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <li class="nav-item">
+        <a href="/home" class="nav-link" routerLink="home">Home </a>
+      </li>
+      <li class="nav-item"  *ngIf="showAdminBoard">
+        <a href="/item"  class="nav-link" routerLink="item">Add Item</a>
+      </li>
+      <li class="nav-item"  *ngIf="showAdminBoard">
+        <a href="/subitem" class="nav-link" routerLink="subitem">Add Sub Item </a>
+      </li>
+      <li class="nav-item"  *ngIf="showAdminBoard">
+        <a href="/linkitem" class="nav-link" routerLink="linkitem"> Link Item </a>
+      </li>
+      <li class="nav-item"  *ngIf="showAdminBoard">
+        <a href="/order" class="nav-link" routerLink="order"> Add Order </a>
+      </li>
+      <!-- <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+      </li> -->
+      <!-- <li class="nav-item dropdown" *ngIf="showAdminBoard">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Item Master
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a href="/item" class="dropdown-item" routerLink="item">Add Item</a>
+          <a href="/subitem" class="dropdown-item" routerLink="subitem">Add Sub Item </a>
+          <a href="/linkitem" class="dropdown-item" routerLink="linkitem"> Link Item </a>
+         
+        </div>
+      </li> -->
+      <!-- <li class="nav-item" *ngIf="showModeratorBoard">
+        <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
+      </li> -->
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a href="/login" class="nav-link" routerLink="login">Login</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+      </li>
+      <li class="nav-item">
+        <a href class="nav-link" (click)="logout()">LogOut</a>
+      </li>
+    </ul>
+  </div>
+  </nav>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+

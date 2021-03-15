@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+table.dataTable td.dataTables_empty {
+    display: none !important;
+}
+
+#DataTables_Table_0{
+    width:60% !important;
+}
+
+#DataTables_Table_0 th,#DataTables_Table_0 td{
+    text-align: center !important;
+}
+
+i.fa.fa-edit {
+    padding: 6px;
+    background-color: #f9990bde;
+    border-radius: 20px;
+    font-size: 15px;
+    color: white;
+}
+
+i.fa.fa-plus {
+    padding: 6px;
+    background-color: #17a2b8;
+    border-radius: 20px;
+    font-size: 15px;
+    color: white;
+}
+i.fa.fa-trash {
+    padding: 6px;
+    background-color:red;
+    border-radius: 20px;
+    font-size: 15px;
+    color: white;
+}
+
+ td,  th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+   tr:nth-child(even){background-color: #f2f2f2;}
+  
+   tr:hover {background-color: #ddd;}
+  
+   th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #a91e2b;
+    color: white;
+  }
+
+  
